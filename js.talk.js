@@ -675,7 +675,11 @@
 
 
 
-
+	//
+	//
+	//
+	//
+	//
 
 	let getArticles = () => {
 		return new Promise((resolve, reject) => {
@@ -698,7 +702,11 @@
 	});
 
 
-
+	//
+	//
+	//
+	//
+	//
 
 
 
@@ -726,9 +734,6 @@
 	console.log(gen.next(2));
 	console.log(gen.next(3));
 
-	for (let r of gen) {
-		console.log(r);
-	}
 
 
 
