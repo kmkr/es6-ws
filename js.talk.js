@@ -939,5 +939,6 @@
 // Ressurser
 // =========
 
+- https://github.com/lukehoban/es6features
 - https://leanpub.com/understandinges6/read
-- http://www.html5rocks.com/en/tutorials/es6/promises/
+- http://kangax.github.io/compat-table/es6/
