@@ -437,7 +437,7 @@
 //
 //
 
-	function ajax(url, { timeout = 1000, method, callback, cache }) {
+	function ajax(url, { timeout, method, callback, cache }) {
 		console.log(method, ':', url, 'med timeout', timeout, 'og cache', cache);
 	}
 
@@ -644,7 +644,7 @@
 
 	// Pyramid of doom fikset med promises
 
-	step1
+	step1()
 	.then(step2)
 	.then(step3)
 	.then(step4)
@@ -683,19 +683,17 @@
 
 	let getArticles = () => {
 		return new Promise((resolve, reject) => {
-			window.setTimeout(() => resolve(articles), 1000);
+			window.setTimeout(() => resolve(articles), 500);
 		}); 
 	};
 
 	let getComments = articleId => {
 		return new Promise((resolve, reject) => {
-			window.setTimeout(() => resolve(comments));
+			window.setTimeout(() => resolve(comments), 500);
 		});
 	};
 
-	let articles = getArticles();
-
-	articles.then(articles => {
+	getArticles().then(articles => {
 		articles.forEach(article => {
 			getComments(article.articleId).then(comments => console.log(comments));
 		});
@@ -824,6 +822,23 @@
 	};
 
 
+	var get = async(function *(url) {
+		try {
+			let article = yield _getArticleFromServer(url);
+			article.comments = yield _getCommentsFromServer(url + '/comments');
+			return article;
+		} catch (e) {
+			handleError(e);
+		}
+	});
+
+
+	console.log(get('/articles/1').then(article => console.log(article)));
+
+
+
+	
+
 	function async(makeGenerator) {
 		return function (...params) {
 			var generator = makeGenerator(...params);
@@ -843,20 +858,6 @@
 			return handle(generator.next())
 		}
 	}
-
-
-	var get = async(function *(url) {
-		try {
-			let article = yield _getArticleFromServer(url);
-			article.comments = yield _getCommentsFromServer(url + '/comments');
-			return article;
-		} catch (e) {
-			handleError(e);
-		}
-	});
-
-
-	console.log(get('/articles/1').then(article => console.log(article)));
 
 
 
