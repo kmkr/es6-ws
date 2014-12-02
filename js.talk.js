@@ -32,14 +32,14 @@
 	// Nye konsepter:
 	//		Template strings
 	//		Klasser
-	//		Moduler
 	//		Destructuring
 	//		Promises
 	//		Generators	
-	//		Symboler
-	//		Map, Set
-	//		Proxies
-
+	//
+	//		Symboler (går ikke gjennom i dag)
+	//		Map, Set         ('')
+	//		Proxies          ('')
+	//		Moduler          ('')
 
 
 
@@ -341,7 +341,7 @@
 
 
 	// ES6 (uten bug):
-	var Animal = (function () {
+	let Animal = (function () {
 		function Animal(name) {
 			this.name = name;
 		}
@@ -912,26 +912,6 @@
 
 - Transpilers (Traceur/6to5/echo-js)
 - Nativestøtte i nettlesere. http://kangax.github.io/compat-table/es6/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Hva mer kommer i ES6?
-// =====================
-
-// Se index
-
 
 
 
