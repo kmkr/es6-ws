@@ -4,8 +4,8 @@
 
   ECMAScript 1
       |  ECMAScript 2
-      |      |  ECMAScript 3                     ECMAScript 4  ECMAScript 5        ECMAScript 6
- -----|------|------|----------------------------------------------|-------------------|-------
+      |      |  ECMAScript 3                     ECMAScript 4  ECMAScript 5      ECMAScript 6
+ -----|------|------|----------------------------------------------|-------------------|-----
      1997   1998   1999   2000   2001   ...   2005   ...   2008   2009   2010   ...   2015
 
 
@@ -30,16 +30,16 @@
 	//		objekter
 
 	// Nye konsepter:
-	//		Template strings
+	//		Template literals
 	//		Klasser
+	//		Moduler (todo)
 	//		Destructuring
 	//		Promises
-	//		Generators	
+	//		Generators
 	//
 	//		Symboler (går ikke gjennom i dag)
 	//		Map, Set         ('')
 	//		Proxies          ('')
-	//		Moduler          ('')
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-// Shorthands for objekter
+// Shorthands for objekter
 // =======================
 
 	// Mindre å skrive (implisitt navn på keys)
@@ -262,6 +262,7 @@
 
 
 
+// todo: const. bruk const i stedet for let
 
 
 
@@ -412,7 +413,6 @@
 
 
 
-
 	function ajax(url, timeout, cache, method, callback) {
 		console.log(method, ':', url, 'med timeout', timeout, 'og cache', cache);
 	}
@@ -425,7 +425,7 @@
 // Argument 1: url
 // Argument 2: options-objekt
 // 
-// https://google.github.io/traceur-compiler/demo/repl.html
+// https://babeljs.io/repl/
 
 
 
@@ -510,7 +510,7 @@
 // Argument 1: url
 // Argument 2: options-objekt med defaultverdier
 // 
-// https://google.github.io/traceur-compiler/demo/repl.html
+// https://babeljs.io/repl/
 
 
 
@@ -571,20 +571,20 @@
 		}
 
 		talk () {
-			console.log(`I have ${this.numEyes} eye(s)`)
+			console.log(`I am ${this.name}, and I have ${this.numEyes} eye(s)`)
 		}
 	}
 
 
 	class Cyclops extends Animal {
-		constructor (name, type) {
+		constructor (name) {
 			super(name);
 			this.numEyes = 1;
 		}
 	}
 
-	console.log (new Animal().talk());
-	console.log (new Cyclops().talk());
+	console.log (new Animal('Ole').talk());
+	console.log (new Cyclops('Walt').talk());
 
 
 
@@ -754,13 +754,12 @@
 
 
 
-
 // Bruk?
 // =====
 
 	function _getArticleFromServer(url, success, error) {
 		window.setTimeout(function () {
-          success({ title: 'An article' });
+			success({ title: 'An article' });
 		}, 100);
 	}
 
@@ -910,7 +909,7 @@
 // ES6 allerede nå?
 // ================
 
-- Transpilers (Traceur/6to5/echo-js)
+- Transpilers (Babel/Traceur/echo-js)
 - Nativestøtte i nettlesere. http://kangax.github.io/compat-table/es6/
 
 
@@ -920,6 +919,5 @@
 // Ressurser
 // =========
 
-- https://github.com/lukehoban/es6features
-- https://leanpub.com/understandinges6/read
+- http://exploringjs.com
 - http://kangax.github.io/compat-table/es6/
